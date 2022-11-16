@@ -1,0 +1,36 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: runtime-config-repro
+  namespace: teamsykmelding
+  labels:
+    team: teamsykmelding
+spec:
+  port: 3000
+  ingresses:
+    - https://runtime-config-repro.labs.nais.io
+  image: {{ image }}
+  replicas:
+    min: 1
+    max: 1
+    cpuThresholdPercentage: 75
+  resources:
+    limits:
+      cpu: 500m
+      memory: 2048Mi
+    requests:
+      cpu: 100m
+      memory: 200Mi
+  liveness:
+    path: /api/internal/is_alive
+  readiness:
+    path: /api/internal/is_ready
+  prometheus:
+    enabled: false
+  env:
+    - name: PROVIDED_AT_SERVER_RUNTIME
+      value: Some value set at runtime through kubernetes
+    - name: ALSO_PROVIDED_AT_SERVER_RUNTIME
+      value: Other value set at runtime through kubernetes
+    - name: RUNTIME_ENVIRONMENT
+      value: labs
