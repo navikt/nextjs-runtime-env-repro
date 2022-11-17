@@ -1,4 +1,4 @@
-@import '~@navikt/ds-css';
+@import "~@navikt/ds-css";
 
 .container {
   padding: 0 2rem;
@@ -12,4 +12,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+pre {
+  overflow: scroll;
+  width: 100%;
+  max-width: fit-content;
+  font-size: 0.8rem;
+}
+
+ol, ul {
+  padding-left: 18px;
+}
+
+.env-list {
+  list-style: none;
+  font-family: monospace;
+  font-size: 0.8rem;
 }

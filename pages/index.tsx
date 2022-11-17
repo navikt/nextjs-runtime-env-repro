@@ -30,7 +30,7 @@ export default function Home() {
           </li>
           <li>
             Observe that the following environment variables are missing:
-            <ul>
+            <ul className="env-list">
               <li>PROVIDED_AT_SERVER_RUNTIME</li>
               <li>ALSO_PROVIDED_AT_SERVER_RUNTIME</li>
               <li>RUNTIME_ENVIRONMENT</li>
